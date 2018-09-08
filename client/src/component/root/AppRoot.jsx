@@ -6,7 +6,10 @@ import { ThemeProvider } from 'styled-components';
 import { hot } from 'react-hot-loader';
 
 // Import components ===========================================================
-import HomeView from 'component/view/HomeView';
+import { Auth } from 'component/util/Auth';
+import { HomeView } from 'component/view/HomeView';
+import { LoginView } from 'component/view/LoginView';
+
 
 // Import styles ================================================================
 import './globalStyles';
@@ -20,12 +23,14 @@ const theme = {
   background: '#fff',
 };
 
+const AuthView = props => <Auth {...props} ><HomeView /></Auth>;
+
 const App = ({ store }) => (
   <ThemeProvider theme={theme}>
     <Provider store={store}>
       <Switch>
-        <Route exact path="/" component={HomeView} />
-        <Route exact path="/home" component={HomeView} />
+        <Route exact path="/" component={AuthView} />
+        <Route exact path="/login" component={LoginView} />
       </Switch>
     </Provider>
   </ThemeProvider>

@@ -1,4 +1,6 @@
 defmodule Tracker.Account do
+  require Logger
+
   @moduledoc """
   The Account context.
   """
@@ -103,8 +105,9 @@ defmodule Tracker.Account do
   end
 
   def insert_or_update_user(changeset) do
-    case Repo.get_by(User, email: changeset.changes.email) do
+    case Repo.get_by!(User, email: changeset.changes.email) do
       nil ->
+        Logger.info 'aa'
         Repo.insert(changeset)
       user ->
         {:ok, user}

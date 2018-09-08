@@ -1,12 +1,11 @@
 import React from 'react';
 
-// Import components =============================================================
-import Button from 'component/base/Button';
+// Import config =============================================================
 
 const HomeView = () => (
-  <Button onClick={() => {}}>
-    Login With Google
-  </Button>
+  <div>
+    HomeView
+  </div>
 );
 
-export default HomeView;
+export { HomeView };

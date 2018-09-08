@@ -13,6 +13,6 @@ defmodule TrackerWeb.Router do
     pipe_through :api
 
     get "/:provider", AccountController, :request
-    get "/:provider/callback", AccountController, :callback
+    post "/:provider/callback", AccountController, :callback
   end
 end
